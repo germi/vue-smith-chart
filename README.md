@@ -1,29 +1,53 @@
-# smithchart
+# Smitch Chart with Vue.js
 
-## Project setup
-```
-npm install
-```
+Draw the Smith Chart in SVG with Vue.js
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Getting Started
 
-### Compiles and minifies for production
-```
-npm run build
-```
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Run your tests
+### Prerequisites
+
+What things you need to install the software and how to install them
+
 ```
-npm run test
+Give examples
 ```
 
-### Lints and fixes files
+### Installing
+
+A step by step series of examples that tell you how to get a development env running
+
+Say what the step will be
+
 ```
-npm run lint
+Give the example
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+And repeat
+
+```
+until finished
+```
+
+End with an example of getting some data out of the system or using it for a little demo
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system
+
+## Built With
+
+* [Vue.js](https://vuejs.org/) - The Progressive JavaScript Framework
+
+## Authors
+
+* **Germinal Camps** - *Initial work* - [PurpleBooth](https://github.com/germi)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Resources
+
+* [https://www.allaboutcircuits.com/technical-articles/mathematical-construction-and-properties-of-the-smith-chart/](Mathematical Construction and Properties of the Smith Chart)
