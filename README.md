@@ -8,11 +8,19 @@ TODO
 
 ## Usage
 
-TODO
+After loading Vue.js library and the smithChart component, you can use the `smith-chart` component inside your Vue app:
+
+```html
+<smith-chart></smith-chart>
+```
 
 ## Examples
 
-TODO
+### Basic chart
+
+```html
+<smith-chart></smith-chart>
+```
 
 ## Built With
 
@@ -20,7 +28,7 @@ TODO
 
 ## Authors
 
-* **Germinal Camps** [website](http://www.germinalcamps.com)
+* **Germinal Camps** - [website](http://www.germinalcamps.com)
 
 ## License
 
