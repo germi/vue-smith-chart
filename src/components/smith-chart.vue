@@ -337,9 +337,6 @@
       <!-- CENTRAL RED DOT -->
       <circle fill="red" r="3"></circle>
 
-      <!-- CUSTOM POINTS -->
-      <slot></slot>
-
       <g stroke="black" stroke-width="0.5" fill="none">
         <circle :r="radius" stroke-width="1"></circle>
 
@@ -473,6 +470,9 @@
         />
 
       </g>
+
+      <!-- CUSTOM POINTS -->
+      <slot></slot>
 
     </g>
 
