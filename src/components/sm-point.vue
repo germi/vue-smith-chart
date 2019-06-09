@@ -41,7 +41,7 @@ export default {
 
       let b = (2*x) / (Math.pow(r+1, 2) + Math.pow(x, 2))
 
-      return b * this.radius
+      return - b * this.radius
 
     }
   }
