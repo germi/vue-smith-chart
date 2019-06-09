@@ -24,15 +24,21 @@ After loading Vue.js library and the smithChart component, you can use the `smit
 
 ### Add points to the chart
 
-You can use the `sm-point` component to draw points into specific intersecting resistance/reactance circles.
+You can use the `<sm-point>` component to draw points into specific intersecting resistance/reactance circles.
 You need to specify the `res` and `react` props (resistance and reactance).
-This will draw an SVG element at the desired position, which means all of the SVG attributes in HTML are still valid, such as `fill` to set the color.
+This will draw an SVG `<circle>` element at the desired position, which means all of the SVG attributes in HTML are still valid, such as `fill` to set the color. You can use `r` to set the radius of the point.
 
 ```html
 <smith-chart>
-  <sm-point :res="1" :react="1" fill="blue"></sm-point>
+  <sm-point :res="0" :react="0" fill="red"></sm-point>
+  <sm-point :res="1" :react="0" fill="blue"></sm-point>
+  <sm-point :res="2" :react="0" fill="green"></sm-point>
+  <sm-point :res="3" :react="1" fill="purple"></sm-point>
+  <sm-point :res="0.6" :react="0.6" fill="rgba(123,345,2,0.5)" r="10"></sm-point>
 </smith-chart>
 ```
+
+![Smith Chart with custom points](readme/points.jpg?raw=true "Smith Chart with custom points")
 
 ## Built With
 

@@ -1,11 +1,9 @@
 <template lang="html">
-<g>
-  <circle
-    :cx="cx - r"
-    :cy="cy"
-    :r="4"
-  />
-</g>
+<circle
+  :cx="cx"
+  :cy="cy"
+  :r="r"
+/>
 </template>
 
 <script>
@@ -17,7 +15,11 @@ export default {
   },
   props: {
     res: [Number, String],
-    react: [Number, String]
+    react: [Number, String],
+    r: {
+      type: [Number, String],
+      default: 4
+    }
   },
   computed: {
     // a and b calculations taken from:
@@ -29,7 +31,7 @@ export default {
 
       let a = (Math.pow(r, 2) - 1 + Math.pow(x, 2)) / (Math.pow(r+1, 2) + Math.pow(x, 2))
 
-      return a * this.radius + this.r
+      return a * this.radius
 
     },
     cy: function(){
@@ -41,10 +43,7 @@ export default {
 
       return b * this.radius
 
-    },
-    r: function(){
-      return this.radius/(this.res + 1)
-    },
+    }
   }
 }
 </script>

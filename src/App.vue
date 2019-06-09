@@ -8,8 +8,7 @@
       <sm-point :res="1" :react="0" fill="blue"></sm-point>
       <sm-point :res="2" :react="0" fill="green"></sm-point>
       <sm-point :res="3" :react="1" fill="purple"></sm-point>
-      <sm-point :res="4" :react="2" fill="orange"></sm-point>
-      <sm-point :res="0.6" :react="0.6" fill="black"></sm-point>
+      <sm-point :res="0.6" :react="0.6" fill="rgba(123,345,2,0.5)" r="10"></sm-point>
     </smith-chart>
 
   </div>
