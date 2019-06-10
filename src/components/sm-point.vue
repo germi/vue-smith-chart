@@ -31,7 +31,7 @@ export default {
 
       let a = (Math.pow(r, 2) - 1 + Math.pow(x, 2)) / (Math.pow(r+1, 2) + Math.pow(x, 2))
 
-      return a * this.radius
+      return a * this.radius + this.radius
 
     },
     cy: function(){
@@ -41,7 +41,7 @@ export default {
 
       let b = (2*x) / (Math.pow(r+1, 2) + Math.pow(x, 2))
 
-      return - b * this.radius
+      return - b * this.radius + this.radius
 
     }
   }

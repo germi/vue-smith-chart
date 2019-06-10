@@ -468,13 +468,13 @@
 
       </g>
 
-      <!-- CENTRAL RED DOT -->
-      <sm-point :res="1" :react="0" fill="red" r="3" />
-
-      <!-- CUSTOM POINTS -->
-      <slot></slot>
-
     </g>
+
+    <!-- CENTRAL RED DOT -->
+    <sm-point :res="1" :react="0" fill="red" r="3" />
+
+    <!-- CUSTOM POINTS -->
+    <slot></slot>
 
   </g>
 
