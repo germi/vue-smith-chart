@@ -181,7 +181,6 @@
           :react="n*0.1 + 0.45"
           v-for="n in 5"
           :crop="1"
-          stroke-width="10"
           :key="'react-circle-mask-1-'+n"
          />
 

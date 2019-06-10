@@ -1,5 +1,8 @@
 <template lang="html">
-<g class="react-circle arc">
+<g
+  class="react-circle arc"
+  :mask="'url(#res-circle-'+crop+')'"
+>
   <circle
     :cx="cx"
     :cy="cy"
@@ -62,7 +65,9 @@ export default {
   },
   props: {
     react: [Number, String],
-    crop: [Number, String]
+    crop: {
+      default: ''
+    }
   },
   computed: {
     cx: function(){
