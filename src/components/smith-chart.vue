@@ -12,7 +12,6 @@
           :cx="radius"
           :cy="radius"
           :r="radius"
-          id="svgPath"
         />
       </clipPath>
 
@@ -21,7 +20,11 @@
   <g :transform="'translate('+translateX+' '+translateX+') rotate('+rotate+') '">
 
     <!-- THIN LINES -->
-    <g class="arc" stroke="black" stroke-width=".5" fill="none">
+    <g
+      stroke="black"
+      stroke-width=".5"
+      fill="none"
+    >
 
       <!-- CONSTANT RESISTANCE CIRCLES -->
 
@@ -120,7 +123,7 @@
       <g mask="url(#res-circle-50)">
 
         <sm-react-circle
-          :res="n*10 + 10"
+          :react="n*10 + 10"
           v-for="n in 3"
           :crop="50"
           :key="'react-circle-mask-50-'+n"
@@ -131,7 +134,7 @@
       <g mask="url(#res-circle-20)">
 
         <sm-react-circle
-          :res="n*2"
+          :react="n*2"
           v-for="n in 10"
           :crop="20"
           :key="'react-circle-mask-20-'+n"
@@ -142,7 +145,7 @@
       <g mask="url(#res-circle-10)">
 
         <sm-react-circle
-          :res="n*2 - 1"
+          :react="n*2 - 1"
           v-for="n in 5"
           :crop="10"
           :key="'react-circle-mask-10-'+n"
@@ -153,7 +156,7 @@
       <g mask="url(#res-circle-5)">
 
         <sm-react-circle
-          :res="n*0.2"
+          :react="n*0.2"
           v-for="n in 25"
           :crop="5"
           :key="'react-circle-mask-5-'+n"
@@ -164,7 +167,7 @@
       <g mask="url(#res-circle-2)">
 
         <sm-react-circle
-          :res="n*0.2 - 0.1"
+          :react="n*0.2 - 0.1"
           v-for="n in 10"
           :crop="2"
           :key="'react-circle-mask-2-'+n"
@@ -175,9 +178,10 @@
       <g mask="url(#res-circle-1)">
 
         <sm-react-circle
-          :res="n*0.1 + 0.45"
+          :react="n*0.1 + 0.45"
           v-for="n in 5"
           :crop="1"
+          stroke-width="10"
           :key="'react-circle-mask-1-'+n"
          />
 
@@ -186,7 +190,7 @@
       <g mask="url(#res-circle-0.5)">
 
         <sm-react-circle
-          :res="n*0.02"
+          :react="n*0.02"
           v-for="n in 25"
           :crop="0.5"
           :key="'react-circle-mask-05-'+n"
@@ -197,7 +201,7 @@
       <g mask="url(#res-circle-0.2)">
 
         <sm-react-circle
-          :res="0.02 * n - 0.01"
+          :react="0.02 * n - 0.01"
           v-for="n in 10"
           :crop="0.2"
           :key="'react-circle-mask-02-'+n"
@@ -205,12 +209,12 @@
 
       </g>
 
-      <sm-react-circle :res="10" />
+      <sm-react-circle :react="10" />
 
       <g mask="url(#res-circle-1)">
         <g mask="url(#res-circle-inverse-0.5)">
           <sm-react-circle
-            :res="0.1 * n - 0.05"
+            :react="0.1 * n - 0.05"
             v-for="n in 5"
             :crop="1"
             :key="'react-circle-mask-1-inverse-'+n"
@@ -282,53 +286,53 @@
       <!-- CONSTANT REACTANCE CIRCLES -->
       <g mask="url(#res-circle-0.2)">
 
-        <sm-react-circle :res="0.05"  />
-        <sm-react-circle :res="0.15"  />
+        <sm-react-circle :react="0.05"  />
+        <sm-react-circle :react="0.15"  />
 
       </g>
 
       <g mask="url(#res-circle-1)">
 
-        <sm-react-circle :res="0.1"  />
-        <sm-react-circle :res="0.3"  />
-        <sm-react-circle :res="0.5"  />
-        <sm-react-circle :res="0.7"  />
-        <sm-react-circle :res="0.9"  />
+        <sm-react-circle :react="0.1"  />
+        <sm-react-circle :react="0.3"  />
+        <sm-react-circle :react="0.5"  />
+        <sm-react-circle :react="0.7"  />
+        <sm-react-circle :react="0.9"  />
 
       </g>
 
       <g mask="url(#res-circle-2)">
-        <sm-react-circle :res="0.2" />
-        <sm-react-circle :res="0.4" />
-        <sm-react-circle :res="0.6" />
-        <sm-react-circle :res="0.8" />
-        <sm-react-circle :res="1.2" />
-        <sm-react-circle :res="1.4" />
-        <sm-react-circle :res="1.6" />
-        <sm-react-circle :res="1.8" />
+        <sm-react-circle :react="0.2" />
+        <sm-react-circle :react="0.4" />
+        <sm-react-circle :react="0.6" />
+        <sm-react-circle :react="0.8" />
+        <sm-react-circle :react="1.2" />
+        <sm-react-circle :react="1.4" />
+        <sm-react-circle :react="1.6" />
+        <sm-react-circle :react="1.8" />
       </g>
 
       <g mask="url(#res-circle-5)">
-        <sm-react-circle :res="1" />
-        <sm-react-circle :res="2" />
-        <sm-react-circle :res="3" />
-        <sm-react-circle :res="4" />
+        <sm-react-circle :react="1" />
+        <sm-react-circle :react="2" />
+        <sm-react-circle :react="3" />
+        <sm-react-circle :react="4" />
       </g>
 
       <g mask="url(#res-circle-10)">
 
-        <sm-react-circle :res="5" />
+        <sm-react-circle :react="5" />
 
       </g>
 
       <g mask="url(#res-circle-20)">
 
-        <sm-react-circle :res="10" />
-        <sm-react-circle :res="20" />
+        <sm-react-circle :react="10" />
+        <sm-react-circle :react="20" />
 
       </g>
 
-      <sm-react-circle :res="50" />
+      <sm-react-circle :react="50" />
 
     </g>
 

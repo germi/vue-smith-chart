@@ -11,7 +11,7 @@
       <sm-point :res="0.6" :react="0.6" fill="rgba(123,345,2,0.5)" r="10"></sm-point>
       <sm-point :res="0.6" :react="-0.6" fill="rgba(0,345,2,1)" r="10"></sm-point>
       <sm-res-circle :res="1" fill="rgba(0,0,255,0.5)" key="TESTTEST"></sm-res-circle>
-      <sm-res-circle :res="0.2" fill="rgba(0,255,255,0.5)" key="TESTTEST"></sm-res-circle>
+      <sm-react-circle :react="0.2" fill="rgba(0,255,255,0.5)" key="TESTTEST2"></sm-react-circle>
     </smith-chart>
 
   </div>
@@ -21,13 +21,15 @@
 import SmithChart from './components/smith-chart.vue'
 import SmPoint from './components/sm-point.vue'
 import SmResCircle from './components/sm-res-circle.vue'
+import SmReactCircle from './components/sm-react-circle.vue'
 
 export default {
   name: 'app',
   components: {
     SmithChart,
     SmPoint,
-    SmResCircle
+    SmResCircle,
+    SmReactCircle
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template lang="html">
-<g class="react-circle">
+<g class="react-circle arc">
   <circle
     :cx="cx"
     :cy="cy"
@@ -10,7 +10,7 @@
     :cy="cy * -1 + 2 * radius"
     :r="r"
   />
-  <mask :id="'react-circle-'+res">
+  <mask :id="'react-circle-'+react">
     <rect
       :width="2*radius"
       :height="2*radius"
@@ -30,8 +30,8 @@
     />
   </mask>
   <mask
-    v-if="res==0.5"
-    :id="'react-circle-inverse-'+res">
+    v-if="react==0.5"
+    :id="'react-circle-inverse-'+react">
     <rect
       :width="2*radius"
       :height="2*radius"
@@ -61,7 +61,7 @@ export default {
     }
   },
   props: {
-    res: [Number, String],
+    react: [Number, String],
     crop: [Number, String]
   },
   computed: {
@@ -69,10 +69,10 @@ export default {
       return this.radius + this.radius
     },
     cy: function(){
-      return this.radius/this.res + this.radius
+      return this.radius/this.react + this.radius
     },
     r: function(){
-      return this.radius/this.res
+      return this.radius/this.react
     },
   }
 }
