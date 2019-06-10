@@ -5,14 +5,14 @@
 
     <smith-chart>
 
-      <sm-point :res="0" :react="0" fill="red"></sm-point>
+      <!-- <sm-point :res="0" :react="0" fill="red"></sm-point>
       <sm-point :res="1" :react="0" fill="blue"></sm-point>
       <sm-point :res="2" :react="0" fill="green"></sm-point>
       <sm-point :res="3" :react="1" fill="purple"></sm-point>
       <sm-point :res="0.6" :react="0.6" fill="rgba(123,345,2,0.5)" r="10"></sm-point>
       <sm-point :res="0.6" :react="-0.6" fill="rgba(0,345,2,1)" r="10"></sm-point>
 
-      <!-- <sm-res-circle
+      <sm-res-circle
         :res="0.5"
         :crop="1"
         fill="rgba(255,0,255,0.5)"
@@ -33,18 +33,26 @@
         stroke="#FF4136"
       ></sm-res-circle> -->
 
-      <!-- <sm-react-circle
+      <sm-react-circle
+        :react="0.2"
+        :crop="2"
+        fill="none"
+        stroke-width="5"
+        stroke="#FF4136"
+      ></sm-react-circle>
+
+      <sm-react-circle
         :react="0.8"
         fill="rgba(0,255,255,0.5)"
       ></sm-react-circle>
 
       <sm-react-circle
-        :react="0.2"
+        :react="0.5"
         crop="0.6"
-        fill="rgba(130,130,0,0.5)"
-        stroke-width="10"
-        stroke="black"
-      ></sm-react-circle> -->
+        fill="rgba(255,0,255,0.5)"
+        stroke-width="5"
+        stroke="rgb(255,0,255)"
+      ></sm-react-circle>
 
     </smith-chart>
 

@@ -22,10 +22,12 @@ After loading Vue.js library and the smithChart component, you can use the `smit
 <smith-chart></smith-chart>
 ```
 
-### Display points
+### Draw points with `<sm-point>`
 
 Use the `<sm-point>` component to draw points into specific intersecting resistance/reactance circles.
+
 You need to specify the `res` and `react` props (resistance and reactance).
+
 This will draw an SVG `<circle>` element at the desired position, which means all of the SVG attributes in HTML are still valid, such as `fill` to set the color. You can use `r` to set the radius of the point.
 
 ```html
@@ -40,16 +42,17 @@ This will draw an SVG `<circle>` element at the desired position, which means al
 
 ![Smith Chart with custom points](readme/points.png?raw=true "Smith Chart with custom points")
 
-### Display Constant Resistance Circles
+### Draw Constant Resistance Circles with `<sm-res-circle>`
 
 Use the `<sm-res-circle>` component to draw constant resistance circles into the chart.
 You need to specify the `res` prop (resistance).
-Optionally set the `crop` prop. This will "crop" the circle using a mask and show you only the portion of that circle that falls "outsite" the Constant Reactance Circle of the specified value.
+
+Optionally set the `crop` prop. This will "crop" the circle using a mask and show you only the portion of that circle that falls "outside" the Constant Reactance Circle of the specified value.
+
 Use the SVG attributes `fill`, `stroke` and `stroke-width` to style the circle.
 
 ```html
 <smith-chart>
-
   <sm-res-circle
     :res="2"
     fill="rgba(0,0,255,0.5)"
@@ -74,6 +77,42 @@ Use the SVG attributes `fill`, `stroke` and `stroke-width` to style the circle.
 ```
 
 ![Smith Chart with custom resistance circles](readme/res-circle.png?raw=true "Smith Chart with custom resistance circles")
+
+### Draw Constant Reactance Circles with `<sm-react-circle>`
+
+Use the `<sm-react-circle>` component to draw constant reactance circles into the chart.
+You need to specify the `react` prop (reactance).
+
+Optionally set the `crop` prop. This will "crop" the circle using a mask and show you only the portion of that circle that falls "outside" the Constant Resistance Circle of the specified value.
+
+Use the SVG attributes `fill`, `stroke` and `stroke-width` to style the circle.
+
+```html
+<smith-chart>
+  <sm-react-circle
+    :react="0.2"
+    :crop="2"
+    fill="none"
+    stroke-width="5"
+    stroke="#FF4136"
+  ></sm-react-circle>
+
+  <sm-react-circle
+    :react="0.8"
+    fill="rgba(0,255,255,0.5)"
+  ></sm-react-circle>
+
+  <sm-react-circle
+    :react="0.5"
+    crop="0.6"
+    fill="rgba(255,0,255,0.5)"
+    stroke-width="5"
+    stroke="rgb(255,0,255)"
+  ></sm-react-circle>
+</smith-chart>
+```
+
+![Smith Chart with custom reactance circles](readme/react-circle.png?raw=true "Smith Chart with custom reactance circles")
 
 ## Built With
 
