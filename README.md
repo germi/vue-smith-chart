@@ -38,7 +38,7 @@ This will draw an SVG `<circle>` element at the desired position, which means al
 </smith-chart>
 ```
 
-![Smith Chart with custom points](readme/points.jpg?raw=true "Smith Chart with custom points")
+![Smith Chart with custom points](readme/points.png?raw=true "Smith Chart with custom points")
 
 ### Display Constant Resistance Circles
 
@@ -73,7 +73,7 @@ Use the SVG attributes `fill`, `stroke` and `stroke-width` to style the circle.
 </smith-chart>
 ```
 
-![Smith Chart with custom resistance circles](readme/points.jpg?raw=true "Smith Chart with custom resistance circles")
+![Smith Chart with custom resistance circles](readme/res-circle.png?raw=true "Smith Chart with custom resistance circles")
 
 ## Built With
 
