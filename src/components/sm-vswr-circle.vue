@@ -1,24 +1,50 @@
 <template lang="html">
-<circle
-  :cx="cx"
-  :cy="cy"
-  :r="r"
-/>
+<g
+  fill="none"
+  stroke-width="3"
+  :stroke="stroke"
+>
+  <circle
+    :cx="radius"
+    :cy="radius"
+    :r="r"
+  />
+  <sm-point
+    v-if="showPoint"
+    :res="res"
+    :react="react"
+    :fill="stroke"
+  ></sm-point>
+</g>
 </template>
 
 <script>
+import SmPoint from './sm-point'
+
 export default {
+  components: {
+    SmPoint
+  },
   data: function () {
     return {
       radius: this.$parent.radius
     }
   },
   props: {
-    res: [Number, String],
-    react: [Number, String],
-    r: {
+    res: {
       type: [Number, String],
-      default: 5
+      default: 1
+    },
+    react: {
+      type: [Number, String],
+      default: 1
+    },
+    showPoint: {
+      type: Boolean,
+      default: true
+    },
+    stroke: {
+      default: 'black'
     }
   },
   computed: {
@@ -31,7 +57,7 @@ export default {
 
       let a = (Math.pow(r, 2) - 1 + Math.pow(x, 2)) / (Math.pow(r+1, 2) + Math.pow(x, 2))
 
-      return a * this.radius + this.radius
+      return a * this.radius
 
     },
     cy: function(){
@@ -41,8 +67,12 @@ export default {
 
       let b = (2*x) / (Math.pow(r+1, 2) + Math.pow(x, 2))
 
-      return - b * this.radius + this.radius
+      return - b * this.radius
 
+    },
+    r: function(){
+      let r = Math.sqrt(Math.pow(this.cx, 2) + Math.pow(this.cy, 2))
+      return r;
     }
   }
 }

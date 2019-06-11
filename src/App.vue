@@ -33,7 +33,7 @@
         stroke="#FF4136"
       ></sm-res-circle> -->
 
-      <sm-react-arc
+      <!-- <sm-react-arc
         :react="-0.2"
         :crop="2"
         fill="none"
@@ -53,7 +53,26 @@
         fill="rgba(255,0,255,0.5)"
         stroke-width="5"
         stroke="rgb(255,0,255)"
-      ></sm-react-arc>
+      ></sm-react-arc> -->
+
+      <sm-vswr-circle
+        :res="1"
+        :react="1"
+      ></sm-vswr-circle>
+
+      <sm-vswr-circle
+        :res="0.3"
+        :react="-0.5"
+        stroke-width="5"
+        stroke="blue"
+      ></sm-vswr-circle>
+
+      <sm-vswr-circle
+        :res="0.2"
+        :react="1"
+        :show-point="false"
+        stroke="red"
+      ></sm-vswr-circle>
 
     </smith-chart>
 
@@ -65,6 +84,7 @@ import SmithChart from './components/smith-chart.vue'
 import SmPoint from './components/sm-point.vue'
 import SmResCircle from './components/sm-res-circle.vue'
 import SmReactArc from './components/sm-react-arc.vue'
+import SmVswrCircle from './components/sm-vswr-circle.vue'
 
 export default {
   name: 'app',
@@ -72,25 +92,7 @@ export default {
     SmithChart,
     SmPoint,
     SmResCircle,
-    SmReactArc
+    SmVswrCircle,
   }
 }
 </script>
-
-<style>
-/* .arc{
-    clip-path: url(#svgPath);
-  }
-  .react-circle{
-    clip-rule: evenodd;
-  }
-  .arc mask{
-    pointer-events: none;
-  }
-  .text-labels{
-    font-size: 12px;
-  }
-  .small-text-labels{
-    font-size: 10px;
-  } */
-</style>
