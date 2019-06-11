@@ -85,12 +85,14 @@ You need to specify the `react` prop (reactance).
 
 Optionally set the `crop` prop. This will "crop" the arc using a mask and show you only the portion of that arc that falls "outside" the Constant Resistance Circle of the specified value.
 
+Optionally set the `double` prop to `true`or `false`. This will draw the reactance arc and also its vertically simetric arc (eg. if you draw the 1 reactance arc, it will also draw the -1).
+
 Use the SVG attributes `fill`, `stroke` and `stroke-width` to style the circle.
 
 ```html
 <smith-chart>
   <sm-react-arc
-    :react="0.2"
+    :react="-0.2"
     :crop="2"
     fill="none"
     stroke-width="5"
@@ -98,13 +100,14 @@ Use the SVG attributes `fill`, `stroke` and `stroke-width` to style the circle.
   ></sm-react-arc>
 
   <sm-react-arc
-    :react="0.8"
+    :react="-0.8"
     fill="rgba(0,255,255,0.5)"
   ></sm-react-arc>
 
   <sm-react-arc
     :react="0.5"
     :crop="0.6"
+    :double="true"
     fill="rgba(255,0,255,0.5)"
     stroke-width="5"
     stroke="rgb(255,0,255)"

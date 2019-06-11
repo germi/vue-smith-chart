@@ -3,17 +3,20 @@
   class="react-circle arc"
   :mask="'url(#res-circle-'+crop+')'"
 >
-  <circle
-    :cx="cx"
-    :cy="cy"
-    :r="r"
-  />
+
   <circle
     :cx="cx"
     :cy="cy * -1 + 2 * radius"
     :r="r"
   />
-  <mask :id="'react-circle-'+react">
+  <circle
+    v-if="double"
+    :cx="cx"
+    :cy="cy"
+    :r="r"
+  />
+
+  <mask :id="'react-circle-'+magnitude">
     <rect
       :width="2*radius"
       :height="2*radius"
@@ -33,8 +36,8 @@
     />
   </mask>
   <mask
-    v-if="react==0.5"
-    :id="'react-circle-inverse-'+react">
+    v-if="magnitude==0.5"
+    :id="'react-circle-inverse-'+magnitude">
     <rect
       :width="2*radius"
       :height="2*radius"
@@ -67,9 +70,15 @@ export default {
     react: [Number, String],
     crop: {
       default: ''
+    },
+    double: {
+      default: false
     }
   },
   computed: {
+    magnitude: function(){
+      return Math.abs(this.react)
+    },
     cx: function(){
       return this.radius + this.radius
     },
@@ -77,7 +86,7 @@ export default {
       return this.radius/this.react + this.radius
     },
     r: function(){
-      return this.radius/this.react
+      return this.radius/this.magnitude
     },
   }
 }

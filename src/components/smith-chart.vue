@@ -123,6 +123,7 @@
       <g mask="url(#res-circle-50)">
 
         <sm-react-arc
+          :double="true"
           :react="n*10 + 10"
           v-for="n in 3"
           :crop="50"
@@ -134,6 +135,7 @@
       <g mask="url(#res-circle-20)">
 
         <sm-react-arc
+          :double="true"
           :react="n*2"
           v-for="n in 10"
           :crop="20"
@@ -145,6 +147,7 @@
       <g mask="url(#res-circle-10)">
 
         <sm-react-arc
+          :double="true"
           :react="n*2 - 1"
           v-for="n in 5"
           :crop="10"
@@ -156,6 +159,7 @@
       <g mask="url(#res-circle-5)">
 
         <sm-react-arc
+          :double="true"
           :react="n*0.2"
           v-for="n in 25"
           :crop="5"
@@ -167,6 +171,7 @@
       <g mask="url(#res-circle-2)">
 
         <sm-react-arc
+          :double="true"
           :react="n*0.2 - 0.1"
           v-for="n in 10"
           :crop="2"
@@ -178,6 +183,7 @@
       <g mask="url(#res-circle-1)">
 
         <sm-react-arc
+          :double="true"
           :react="n*0.1 + 0.45"
           v-for="n in 5"
           :crop="1"
@@ -189,6 +195,7 @@
       <g mask="url(#res-circle-0.5)">
 
         <sm-react-arc
+          :double="true"
           :react="n*0.02"
           v-for="n in 25"
           :crop="0.5"
@@ -200,6 +207,7 @@
       <g mask="url(#res-circle-0.2)">
 
         <sm-react-arc
+          :double="true"
           :react="0.02 * n - 0.01"
           v-for="n in 10"
           :crop="0.2"
@@ -208,11 +216,15 @@
 
       </g>
 
-      <sm-react-arc :react="10" />
+      <sm-react-arc
+        :double="true"
+        :react="10"
+      />
 
       <g mask="url(#res-circle-1)">
         <g mask="url(#res-circle-inverse-0.5)">
           <sm-react-arc
+            :double="true"
             :react="0.1 * n - 0.05"
             v-for="n in 5"
             :crop="1"
@@ -220,8 +232,6 @@
            />
         </g>
       </g>
-
-      <!-- <sm-react-arc :res="0.55" :crop="1" stroke="red" stroke-width="2"></sm-react-arc> -->
 
     </g>
 
@@ -234,7 +244,12 @@
     >
 
       <!--  HORIZONTAL LINE -->
-      <line x1="0" :y1="radius" :x2="2*radius" :y2="radius" />
+      <line
+        x1="0"
+        :y1="radius"
+        :x2="2*radius"
+        :y2="radius"
+      />
 
       <!-- CONSTANT RESISTANCE CIRCLES -->
       <sm-res-circle :res="0" />
@@ -285,53 +300,122 @@
       <!-- CONSTANT REACTANCE CIRCLES -->
       <g mask="url(#res-circle-0.2)">
 
-        <sm-react-arc :react="0.05"  />
-        <sm-react-arc :react="0.15"  />
+        <sm-react-arc
+          :double="true"
+          :react="0.05"
+        />
+        <sm-react-arc
+          :double="true"
+          :react="0.15"
+        />
 
       </g>
 
       <g mask="url(#res-circle-1)">
 
-        <sm-react-arc :react="0.1"  />
-        <sm-react-arc :react="0.3"  />
-        <sm-react-arc :react="0.5"  />
-        <sm-react-arc :react="0.7"  />
-        <sm-react-arc :react="0.9"  />
+        <sm-react-arc
+          :double="true"
+          :react="0.1"
+        />
+        <sm-react-arc
+          :double="true"
+          :react="0.3"
+        />
+        <sm-react-arc
+          :double="true"
+          :react="0.5"
+        />
+        <sm-react-arc
+          :double="true"
+          :react="0.7"
+        />
+        <sm-react-arc
+          :double="true"
+          :react="0.9"
+        />
 
       </g>
 
       <g mask="url(#res-circle-2)">
-        <sm-react-arc :react="0.2" />
-        <sm-react-arc :react="0.4" />
-        <sm-react-arc :react="0.6" />
-        <sm-react-arc :react="0.8" />
-        <sm-react-arc :react="1.2" />
-        <sm-react-arc :react="1.4" />
-        <sm-react-arc :react="1.6" />
-        <sm-react-arc :react="1.8" />
+        <sm-react-arc
+          :double="true"
+          :react="0.2"
+        />
+        <sm-react-arc
+          :double="true"
+          :react="0.4"
+        />
+        <sm-react-arc
+          :double="true"
+          :react="0.6"
+        />
+        <sm-react-arc
+          :double="true"
+          :react="0.8"
+        />
+        <sm-react-arc
+          :double="true"
+          :react="1.2"
+        />
+        <sm-react-arc
+          :double="true"
+          :react="1.4"
+        />
+        <sm-react-arc
+          :double="true"
+          :react="1.6"
+        />
+        <sm-react-arc
+          :double="true"
+          :react="1.8"
+        />
       </g>
 
       <g mask="url(#res-circle-5)">
-        <sm-react-arc :react="1" />
-        <sm-react-arc :react="2" />
-        <sm-react-arc :react="3" />
-        <sm-react-arc :react="4" />
+        <sm-react-arc
+          :double="true"
+          :react="1"
+        />
+        <sm-react-arc
+          :double="true"
+          :react="2"
+        />
+        <sm-react-arc
+          :double="true"
+          :react="3"
+        />
+        <sm-react-arc
+          :double="true"
+          :react="4"
+        />
       </g>
 
       <g mask="url(#res-circle-10)">
 
-        <sm-react-arc :react="5" />
+        <sm-react-arc
+          :double="true"
+          :react="5"
+        />
 
       </g>
 
       <g mask="url(#res-circle-20)">
 
-        <sm-react-arc :react="10" />
-        <sm-react-arc :react="20" />
+        <sm-react-arc
+          :double="true"
+          :react="10"
+        />
+        <sm-react-arc
+          :double="true"
+          :react="20"
+        />
 
       </g>
 
-      <sm-react-arc :react="50" />
+      <sm-react-arc
+        :double="true"
+        :react="50"
+      />
 
     </g>
 
@@ -474,9 +558,14 @@
     </g>
 
     <!-- CENTRAL RED DOT -->
-    <sm-point :res="1" :react="0" fill="red" r="3" />
+    <sm-point
+      :res="1"
+      :react="0"
+      fill="red"
+      r="3"
+    />
 
-    <!-- CUSTOM POINTS -->
+    <!-- SLOTTED COMPONENTS -->
     <slot></slot>
 
   </g>
