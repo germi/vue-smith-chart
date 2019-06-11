@@ -285,9 +285,7 @@
 
     </div>
 
-    <pre>
-      <code v-html="html"></code>
-    </pre>
+    <pre class="bg-light p-3"><code>{{ html }}</code></pre>
 
   </div>
 </template>
@@ -310,11 +308,17 @@ export default {
   },
   computed:{
     html(){
-      let html = ""
-      for (var i = 0; i < this.points.length; i++) {
-        html += '<sm-point :res="' + this.points[i].res + '"></sm-point>'
+      let html = "<smith-chart>\n"
+      for (var i = 0; i < this.res.length; i++) {
+        html += '  <sm-res-circle :res="' + this.res[i].res + '"></sm-res-circle>\n'
       }
-      return html
+      for (var i = 0; i < this.react.length; i++) {
+        html += '  <sm-react-circle :react="' + this.react[i].react + '"></sm-react-circle>\n'
+      }
+      for (var i = 0; i < this.points.length; i++) {
+        html += '  <sm-point :res="' + this.points[i].res + '" :react="' + this.points[i].react + '"></sm-point>\n'
+      }
+      return html + "</smith-chart>"
     }
   },
   data: function () {
