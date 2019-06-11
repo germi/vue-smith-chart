@@ -73,6 +73,8 @@ You can use smaller radius, but the chart will look small and there won't be muc
 <smith-chart :radius="200"></smith-chart>
 ```
 
+![Smith Chart with custom radius](readme/small.png?raw=true "Smith Chart with custom radius")
+
 ##### `:label-rings`
 
 TODO
@@ -185,7 +187,7 @@ Use the SVG attributes `fill`, `stroke` and `stroke-width` to style the circle.
 Use the `<sm-vswr-circle>` component to draw constant Voltage Standing Wave Ratio arcs into the chart.
 You need to specify the `res` and `react` props (resistance and reactance) of the impedance from which you want to draw its VSWR.
 
-The impedance point will be drawn as well, as a default options. Optionally set the `show-point` prop to `false` or `false` if you don't want to display this point.
+The impedance point will be drawn as well, as a default option. Set the `show-point` prop to `false` if you don't want to display this point.
 
 Use the SVG attributes `stroke` and `stroke-width` to style the circle.
 

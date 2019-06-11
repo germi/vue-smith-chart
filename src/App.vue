@@ -3,7 +3,7 @@
 
     <!-- <h1>Smith Chart <small class="text-muted">by <a href="http://www.germinalcamps.com" target="_blank">Germinal Camps</a></small></h1> -->
 
-    <smith-chart :radius="200">
+    <smith-chart>
 
       <!-- <sm-point :res="0" :react="0" fill="red"></sm-point>
       <sm-point :res="1" :react="0" fill="blue"></sm-point>
@@ -33,7 +33,7 @@
         stroke="#FF4136"
       ></sm-res-circle> -->
 
-      <!-- <sm-react-arc
+      <sm-react-arc
         :react="-0.2"
         :crop="2"
         fill="none"
@@ -53,7 +53,7 @@
         fill="rgba(255,0,255,0.5)"
         stroke-width="5"
         stroke="rgb(255,0,255)"
-      ></sm-react-arc> -->
+      ></sm-react-arc>
 
       <!-- <sm-vswr-circle
         :res="1"
@@ -92,6 +92,7 @@ export default {
     SmithChart,
     SmPoint,
     SmResCircle,
+    SmReactArc,
     SmVswrCircle,
   }
 }
