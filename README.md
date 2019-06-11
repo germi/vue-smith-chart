@@ -18,13 +18,9 @@ You can now use the `smith-chart` component inside your Vue app:
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-
-
     <!-- Load the CSS file for a bit of styling, mostly labels -->
     <link rel="stylesheet" href="dist/smithChart.css">
-
     <title>Smith Chart with Vue.js - by Germinal Camps</title>
   </head>
   <body>
