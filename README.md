@@ -8,7 +8,7 @@ TODO
 
 ## Usage
 
-After loading Vue.js library and the smithChart component js file, declare the smitchChart as a component in your Vue instance.
+After loading Vue.js library and the smithChart component js file, declare smithChart as a component in your Vue instance.
 
 Load also the smithChart.css file for a bit of styling.
 
@@ -23,7 +23,7 @@ You can now use the `smith-chart` component inside your Vue app:
 
 
     <!-- Load the CSS file for a bit of styling, mostly labels -->
-    <link rel="stylesheet" href="./smithChart.css">
+    <link rel="stylesheet" href="dist/smithChart.css">
 
     <title>Smith Chart with Vue.js - by Germinal Camps</title>
   </head>
@@ -36,7 +36,7 @@ You can now use the `smith-chart` component inside your Vue app:
     <!-- Load Vue.js from a CDN or your local project -->
     <script src="https://unpkg.com/vue"></script>
     <!-- Load the SmithChart component JS file -->
-    <script src="./smithChart.umd.js"></script>
+    <script src="dist/smithChart.umd.js"></script>
     <!-- Instantiate your main Vue.js object -->
     <script>
     new Vue({
