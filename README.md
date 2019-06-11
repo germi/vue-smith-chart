@@ -73,7 +73,7 @@ You can use smaller radius, but the chart will look small and there won't be muc
 <smith-chart :radius="200"></smith-chart>
 ```
 
-![Smith Chart with custom radius](readme/small.png?raw=true "Smith Chart with custom radius")
+![Smith Chart with custom radius](readme/small.png?raw=true "Smith Chart with custom radius" | width=600)
 
 ##### `:label-rings`
 
