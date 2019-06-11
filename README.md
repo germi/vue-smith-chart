@@ -18,8 +18,22 @@ After loading Vue.js library and the smithChart component, you can use the `smit
 
 ### Basic chart
 
+Use the `<smith-chart>` component to draw the Smitch Chart. Default SVG canvas size is 1000x1000px.
+
 ```html
 <smith-chart></smith-chart>
+```
+
+#### Options (via props)
+
+##### `radius`
+Default: 400
+Define the radius of the chart in pixels. This prop sets the radius of the inner chart (without the external rings for labels)
+
+You can use smaller radius, but the chart will look small and there won't be much space for labels
+
+```html
+<smith-chart :radius="200"></smith-chart>
 ```
 
 ### Draw points with `<sm-point>`
@@ -78,7 +92,7 @@ Use the SVG attributes `fill`, `stroke` and `stroke-width` to style the circle.
 
 ![Smith Chart with custom resistance circles](readme/res-circle.png?raw=true "Smith Chart with custom resistance circles")
 
-### Draw Constant Reactance Circles with `<sm-react-arc>`
+### Draw Constant Reactance Arcs with `<sm-react-arc>`
 
 Use the `<sm-react-arc>` component to draw constant reactance arcs into the chart.
 You need to specify the `react` prop (reactance).
@@ -158,6 +172,14 @@ Use the SVG attributes `stroke` and `stroke-width` to style the circle.
 ## Authors
 
 * **Germinal Camps** - [website](http://www.germinalcamps.com)
+
+## Contributing
+
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :)
 
 ## License
 

@@ -558,12 +558,12 @@
     </g>
 
     <!-- CENTRAL RED DOT -->
-    <sm-point
+    <!-- <sm-point
       :res="1"
       :react="0"
       fill="red"
       r="3"
-    />
+    /> -->
 
     <!-- SLOTTED COMPONENTS -->
     <slot></slot>

@@ -3,7 +3,7 @@
 
     <!-- <h1>Smith Chart <small class="text-muted">by <a href="http://www.germinalcamps.com" target="_blank">Germinal Camps</a></small></h1> -->
 
-    <smith-chart>
+    <smith-chart :radius="200">
 
       <!-- <sm-point :res="0" :react="0" fill="red"></sm-point>
       <sm-point :res="1" :react="0" fill="blue"></sm-point>
@@ -55,7 +55,7 @@
         stroke="rgb(255,0,255)"
       ></sm-react-arc> -->
 
-      <sm-vswr-circle
+      <!-- <sm-vswr-circle
         :res="1"
         :react="1"
       ></sm-vswr-circle>
@@ -72,7 +72,7 @@
         :react="1"
         :show-point="false"
         stroke="red"
-      ></sm-vswr-circle>
+      ></sm-vswr-circle> -->
 
     </smith-chart>
 
