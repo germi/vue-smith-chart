@@ -33,26 +33,26 @@
         stroke="#FF4136"
       ></sm-res-circle> -->
 
-      <sm-react-circle
+      <sm-react-arc
         :react="0.2"
         :crop="2"
         fill="none"
         stroke-width="5"
         stroke="#FF4136"
-      ></sm-react-circle>
+      ></sm-react-arc>
 
-      <sm-react-circle
+      <sm-react-arc
         :react="0.8"
         fill="rgba(0,255,255,0.5)"
-      ></sm-react-circle>
+      ></sm-react-arc>
 
-      <sm-react-circle
+      <sm-react-arc
         :react="0.5"
-        crop="0.6"
+        :crop="0.6"
         fill="rgba(255,0,255,0.5)"
         stroke-width="5"
         stroke="rgb(255,0,255)"
-      ></sm-react-circle>
+      ></sm-react-arc>
 
     </smith-chart>
 
@@ -63,7 +63,7 @@
 import SmithChart from './components/smith-chart.vue'
 import SmPoint from './components/sm-point.vue'
 import SmResCircle from './components/sm-res-circle.vue'
-import SmReactCircle from './components/sm-react-circle.vue'
+import SmReactArc from './components/sm-react-arc.vue'
 
 export default {
   name: 'app',
@@ -71,7 +71,7 @@ export default {
     SmithChart,
     SmPoint,
     SmResCircle,
-    SmReactCircle
+    SmReactArc
   }
 }
 </script>

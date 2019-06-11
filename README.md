@@ -47,7 +47,7 @@ This will draw an SVG `<circle>` element at the desired position, which means al
 Use the `<sm-res-circle>` component to draw constant resistance circles into the chart.
 You need to specify the `res` prop (resistance).
 
-Optionally set the `crop` prop. This will "crop" the circle using a mask and show you only the portion of that circle that falls "outside" the Constant Reactance Circle of the specified value.
+Optionally set the `crop` prop. This will "crop" the circle using a mask and show you only the portion of that circle that falls "outside" the Constant Reactance Arc of the specified value.
 
 Use the SVG attributes `fill`, `stroke` and `stroke-width` to style the circle.
 
@@ -78,37 +78,37 @@ Use the SVG attributes `fill`, `stroke` and `stroke-width` to style the circle.
 
 ![Smith Chart with custom resistance circles](readme/res-circle.png?raw=true "Smith Chart with custom resistance circles")
 
-### Draw Constant Reactance Circles with `<sm-react-circle>`
+### Draw Constant Reactance Circles with `<sm-react-arc>`
 
-Use the `<sm-react-circle>` component to draw constant reactance circles into the chart.
+Use the `<sm-react-arc>` component to draw constant reactance arcs into the chart.
 You need to specify the `react` prop (reactance).
 
-Optionally set the `crop` prop. This will "crop" the circle using a mask and show you only the portion of that circle that falls "outside" the Constant Resistance Circle of the specified value.
+Optionally set the `crop` prop. This will "crop" the arc using a mask and show you only the portion of that arc that falls "outside" the Constant Resistance Circle of the specified value.
 
 Use the SVG attributes `fill`, `stroke` and `stroke-width` to style the circle.
 
 ```html
 <smith-chart>
-  <sm-react-circle
+  <sm-react-arc
     :react="0.2"
     :crop="2"
     fill="none"
     stroke-width="5"
     stroke="#FF4136"
-  ></sm-react-circle>
+  ></sm-react-arc>
 
-  <sm-react-circle
+  <sm-react-arc
     :react="0.8"
     fill="rgba(0,255,255,0.5)"
-  ></sm-react-circle>
+  ></sm-react-arc>
 
-  <sm-react-circle
+  <sm-react-arc
     :react="0.5"
-    crop="0.6"
+    :crop="0.6"
     fill="rgba(255,0,255,0.5)"
     stroke-width="5"
     stroke="rgb(255,0,255)"
-  ></sm-react-circle>
+  ></sm-react-arc>
 </smith-chart>
 ```
 
