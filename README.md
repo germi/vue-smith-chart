@@ -51,9 +51,9 @@ You can now use the `smith-chart` component inside your Vue app:
 
 ## Examples
 
-### Basic chart
+### Basic chart with `<smith-chart>`
 
-Use the `<smith-chart>` component to draw the Smitch Chart. Default SVG canvas size is 1000x1000px.
+Use the `<smith-chart>` component to draw the Smith Chart. Default SVG canvas size is 1000x1000px.
 
 ```html
 <smith-chart></smith-chart>
@@ -61,8 +61,10 @@ Use the `<smith-chart>` component to draw the Smitch Chart. Default SVG canvas s
 
 #### Options (via props)
 
-##### `radius`
-Default: 400
+##### `:radius`
+* Type: `Number`
+* Default: `400`
+
 Define the radius of the chart in pixels. This prop sets the radius of the inner chart (without the external rings for labels)
 
 You can use smaller radius, but the chart will look small and there won't be much space for labels
@@ -70,6 +72,18 @@ You can use smaller radius, but the chart will look small and there won't be muc
 ```html
 <smith-chart :radius="200"></smith-chart>
 ```
+
+##### `:label-rings`
+
+TODO
+
+##### `:resistance-labels`
+
+TODO
+
+##### `:reactance-labels`
+
+TODO
 
 ### Draw points with `<sm-point>`
 
