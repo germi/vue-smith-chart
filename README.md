@@ -2,6 +2,8 @@
 
 Draw the Smith Chart in SVG with Vue.js
 
+![Smith Chart in SVG for HTML with Vue.js](readme/chart.png?raw=true "Smith Chart in SVG for HTML with Vue.js")
+
 ## Getting Started
 
 TODO
@@ -69,7 +71,7 @@ You can use smaller radius, but the chart will look small and there won't be muc
 <smith-chart :radius="200"></smith-chart>
 ```
 
-![Smith Chart with custom radius](readme/small.png?raw=true "Smith Chart with custom radius" | width=600)
+![Smith Chart with custom radius](readme/small.png?raw=true "Smith Chart with custom radius")
 
 ##### `:label-rings`
 
