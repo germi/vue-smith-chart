@@ -4,9 +4,21 @@ Draw the Smith Chart in SVG with Vue.js
 
 ![Smith Chart in SVG for HTML with Vue.js](readme/chart.png?raw=true "Smith Chart in SVG for HTML with Vue.js")
 
+## Assumed knowledge
+
+This package is build with [Vue.js](https://vuejs.org/). It's assumed you know how Vue.js works, and particularly, how components work in the Vue.js framework.
+
+If you're not familiar with those terms, read the Vue.js documentation before moving forward in this document.
+
 ## Getting Started
 
-TODO
+Source files are available in the `/src` folder as SFC ([Single File Components](https://vuejs.org/v2/guide/single-file-components.html)).
+
+To import the Smith Chart package as a global component, load the `.js` file in the `/dist` folder:
+
+```html
+<script src="dist/smithChart.umd.js"></script>
+```
 
 ## Usage
 
@@ -14,7 +26,7 @@ After loading Vue.js library and the smithChart component js file, declare smith
 
 Load also the smithChart.css file for a bit of styling.
 
-You can now use the `smith-chart` component inside your Vue app:
+You can now use the `<smith-chart>` component inside your Vue app:
 
 ```html
 <!doctype html>
