@@ -74,16 +74,34 @@ You can use smaller radius, but the chart will look small and there won't be muc
 ![Smith Chart with custom radius](readme/small.png?raw=true "Smith Chart with custom radius")
 
 ##### `:label-rings`
+* Type: `Boolean`
+* Default: `true`
 
-TODO
+Show or hide the exterior label rings
+
+```html
+<smith-chart :label-rings="false"></smith-chart>
+```
 
 ##### `:resistance-labels`
+* Type: `Boolean`
+* Default: `true`
 
-TODO
+Show or hide the resistance labels
+
+```html
+<smith-chart :resistance-labels="false"></smith-chart>
+```
 
 ##### `:reactance-labels`
+* Type: `Boolean`
+* Default: `true`
 
-TODO
+Show or hide the reactance labels
+
+```html
+<smith-chart :reactance-labels="false"></smith-chart>
+```
 
 ### Draw points with `<sm-point>`
 

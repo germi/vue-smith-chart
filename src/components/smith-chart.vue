@@ -421,8 +421,16 @@
 
     <g :transform="'translate('+radius+' '+radius+')'">
 
-      <g stroke="black" stroke-width="0.5" fill="none">
-        <circle :r="radius" stroke-width="1"></circle>
+      <g
+        v-if="labelRings"
+        stroke="black"
+        stroke-width="0.5"
+        fill="none"
+      >
+        <circle
+          :r="radius"
+          stroke-width="1"
+        ></circle>
 
         <!-- EXTERNAL LABEL CIRCLES -->
         <circle
@@ -446,26 +454,28 @@
         text-anchor="middle"
         dominant-baseline="central"
       >
-        <text
-          v-for="n in 36"
-          :transform="'rotate('+((n-1)*10-90)+')'"
-          :y="-radius - 32"
-          :key="'text-label-'+n"
-        >
-          {{ 180-(n-1)*10 }}
-        </text>
+        <g v-if="labelRings">
+          <text
+            v-for="n in 36"
+            :transform="'rotate('+((n-1)*10-90)+')'"
+            :y="-radius - 32"
+            :key="'text-label-'+n"
+          >
+            {{ 180-(n-1)*10 }}
+          </text>
 
-        <g
-          v-for="n in 50"
-          :key="'g-text-label-'+n"
-          :transform="'rotate('+((n-1)*(36/5)-90)+')'"
-        >
-          <text :y="-radius - 72">{{ ((n-1)*0.01).toFixed(2) }}</text>
-          <text :y="-radius - 48" v-if="n!=1">{{ (0.5-(n-1)*0.01).toFixed(2) }}</text>
-          <text :y="-radius - 48" v-else>{{ (0).toFixed(2) }}</text>
+          <g
+            v-for="n in 50"
+            :key="'g-text-label-'+n"
+            :transform="'rotate('+((n-1)*(36/5)-90)+')'"
+          >
+            <text :y="-radius - 72">{{ ((n-1)*0.01).toFixed(2) }}</text>
+            <text :y="-radius - 48" v-if="n!=1">{{ (0.5-(n-1)*0.01).toFixed(2) }}</text>
+            <text :y="-radius - 48" v-else>{{ (0).toFixed(2) }}</text>
+          </g>
         </g>
 
-        <g>
+        <g v-if="reactanceLabels">
           <sm-react-label :angle="0">1</sm-react-label>
           <sm-react-label :angle="6">0.9</sm-react-label>
           <sm-react-label :angle="12.5">0.8</sm-react-label>
@@ -495,6 +505,7 @@
         </g>
 
         <g
+          v-if="resistanceLabels"
           :transform="'rotate('+(-90)+') '"
           text-anchor="start"
           dominant-baseline="central"
@@ -531,7 +542,11 @@
       </g>
 
       <!-- LINES FOR TEXT LABELS -->
-      <g stroke-width="0.5" stroke="black">
+      <g
+        v-if="labelRings"
+        stroke-width="0.5"
+        stroke="black"
+      >
 
         <line
           v-for="n in 180"
@@ -592,6 +607,18 @@ export default {
     radius: {
       type: Number,
       default: 400
+    },
+    resistanceLabels: {
+      type: Boolean,
+      default: true
+    },
+    reactanceLabels: {
+      type: Boolean,
+      default: true
+    },
+    labelRings: {
+      type: Boolean,
+      default: true
     },
     translateX: {
       type: Number,
