@@ -2,6 +2,9 @@
 
 Draw the Smith Chart in SVG with Vue.js
 
+> The Smith Chart is a graphical aid or nomogram designed for electrical and electronics engineers specializing in radio frequency (RF) engineering to assist in solving problems with transmission lines and matching circuits
+(As taken from [Wikipedia](https://en.wikipedia.org/wiki/Smith_chart))
+
 ![Smith Chart in SVG for HTML with Vue.js](readme/chart.png?raw=true "Smith Chart in SVG for HTML with Vue.js")
 
 ## Assumed knowledge
