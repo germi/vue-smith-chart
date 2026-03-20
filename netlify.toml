@@ -1,0 +1,13 @@
+[build]
+  # Run the VitePress build from the docs/ subdirectory
+  command   = "cd docs && npm install && npm run build"
+  publish   = "docs/.vitepress/dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Redirect all paths to index.html for client-side routing
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
