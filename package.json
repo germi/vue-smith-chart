@@ -43,9 +43,11 @@
     "vue": "^3.0.0"
   },
   "devDependencies": {
+    "@tailwindcss/vite": "^4.2.2",
     "@vitejs/plugin-vue": "^5.0.0",
     "eslint": "^9.0.0",
     "eslint-plugin-vue": "^9.0.0",
+    "tailwindcss": "^4.2.2",
     "vite": "^5.0.0",
     "vue": "^3.4.0"
   }
