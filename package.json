@@ -1,47 +1,52 @@
 {
   "name": "vue-smith-chart",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build-bundle": "vue-cli-service build --target lib --name smithChart ./src/components/smith-chart.vue",
-    "lint": "vue-cli-service lint"
+  "version": "1.0.0",
+  "description": "Smith Chart SVG components for Vue 3",
+  "type": "module",
+  "main": "./dist/vue-smith-chart.umd.cjs",
+  "module": "./dist/vue-smith-chart.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-smith-chart.js",
+      "require": "./dist/vue-smith-chart.umd.cjs"
+    },
+    "./style.css": "./dist/style.css"
   },
-  "dependencies": {
-    "core-js": "^2.6.5",
-    "vue": "^2.6.10"
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint src --ext .vue,.js"
+  },
+  "keywords": [
+    "smith-chart",
+    "vue",
+    "vue3",
+    "rf",
+    "svg",
+    "impedance",
+    "vswr",
+    "electronics"
+  ],
+  "author": "Germinal Camps",
+  "license": "MIT",
+  "homepage": "https://github.com/germi/vue-smith-chart",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/germi/vue-smith-chart.git"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.8.0",
-    "@vue/cli-plugin-eslint": "^3.8.0",
-    "@vue/cli-service": "^3.8.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.10"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+    "@vitejs/plugin-vue": "^5.0.0",
+    "eslint": "^9.0.0",
+    "eslint-plugin-vue": "^9.0.0",
+    "vite": "^5.0.0",
+    "vue": "^3.4.0"
+  }
 }

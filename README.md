@@ -1,273 +1,175 @@
-# Smith Chart with Vue.js
+# vue-smith-chart
 
-Draw the Smith Chart in SVG with Vue.js
+Draw a Smith Chart in SVG with Vue 3.
 
-> The Smith Chart is a graphical aid or nomogram designed for electrical and electronics engineers specializing in radio frequency (RF) engineering to assist in solving problems with transmission lines and matching circuits
+> The Smith Chart is a graphical aid designed for RF/electronics engineers to
+> assist in solving transmission line and impedance matching problems.
 
-(Taken from [Wikipedia](https://en.wikipedia.org/wiki/Smith_chart))
+![Smith Chart in SVG for HTML with Vue.js](readme/chart.png?raw=true "Smith Chart")
 
-![Smith Chart in SVG for HTML with Vue.js](readme/chart.png?raw=true "Smith Chart in SVG for HTML with Vue.js")
+## Installation
 
-## Assumed knowledge
-
-This package is build with [Vue.js](https://vuejs.org/). It's assumed you know how Vue.js works, and particularly, how components work in the Vue.js framework.
-
-If you're not familiar with those terms, read the Vue.js documentation before moving forward in this document.
-
-## Getting Started
-
-Source files are available in the `/src` folder as SFC ([Single File Components](https://vuejs.org/v2/guide/single-file-components.html)).
-
-To import the Smith Chart package as a global component, load the `.js` file in the `/dist` folder:
-
-```html
-<script src="dist/smithChart.umd.js"></script>
+```bash
+npm install vue-smith-chart
 ```
 
-## Usage
+## Quick Start
 
-After loading Vue.js library and the smithChart component js file, declare smithChart as a component in your Vue instance.
+Register all components as a Vue plugin:
 
-Load also the smithChart.css file for a bit of styling.
+```js
+// main.js
+import { createApp } from 'vue'
+import App from './App.vue'
+import VueSmithChart from 'vue-smith-chart'
+import 'vue-smith-chart/style.css'
 
-You can now use the `<smith-chart>` component inside your Vue app:
-
-```html
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <!-- Load the CSS file for a bit of styling, mostly labels -->
-    <link rel="stylesheet" href="dist/smithChart.css">
-    <title>Smith Chart with Vue.js - by Germinal Camps</title>
-  </head>
-  <body>
-
-    <div id="app">
-      <smith-chart></smith-chart>
-    </div>
-
-    <!-- Load Vue.js from a CDN or your local project -->
-    <script src="https://unpkg.com/vue"></script>
-    <!-- Load the SmithChart component JS file -->
-    <script src="dist/smithChart.umd.js"></script>
-    <!-- Instantiate your main Vue.js object -->
-    <script>
-    new Vue({
-      components: {
-        smithChart
-      }
-    }).$mount('#app')
-    </script>
-  </body>
-</html>
+createApp(App).use(VueSmithChart).mount('#app')
 ```
 
-## Examples
-
-### Basic chart with `<smith-chart>`
-
-Use the `<smith-chart>` component to draw the Smith Chart. Default SVG canvas size is 1000x1000px.
+Or import individual components (tree-shakeable):
 
 ```html
-<smith-chart></smith-chart>
+<script setup>
+import { SmithChart, SmPoint } from 'vue-smith-chart'
+import 'vue-smith-chart/style.css'
+</script>
 ```
 
-#### Options (via props)
+## Components
 
-##### `:radius`
-* Type: `Number`
-* Default: `400`
+### `<SmithChart>`
 
-Define the radius of the chart in pixels. This prop sets the radius of the inner chart (without the external rings for labels)
-
-You can use smaller radius, but the chart will look small and there won't be much space for labels
+The root chart component. Renders an SVG canvas with the full Smith Chart grid.
 
 ```html
-<smith-chart :radius="200"></smith-chart>
+<SmithChart :radius="400" />
 ```
 
-![Smith Chart with custom radius](readme/small.png?raw=true "Smith Chart with custom radius")
+#### Props
 
-##### `:label-rings`
-* Type: `Boolean`
-* Default: `true`
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `radius` | `Number` | `400` | Radius of the inner chart in pixels |
+| `labelRings` | `Boolean` | `true` | Show/hide the outer wavelength/angle rings |
+| `resistanceLabels` | `Boolean` | `true` | Show/hide resistance labels |
+| `reactanceLabels` | `Boolean` | `true` | Show/hide reactance labels |
+| `translateX` | `Number` | `100` | Internal SVG offset (leave at default) |
+| `rotate` | `Number` | `0` | Rotate the entire chart (degrees) |
 
-Show or hide the exterior label rings
+---
+
+### `<SmPoint>`
+
+Plot a point at a given impedance (resistance + reactance).
 
 ```html
-<smith-chart :label-rings="false"></smith-chart>
+<SmithChart>
+  <SmPoint :res="0" :react="0" fill="red" />
+  <SmPoint :res="1" :react="0" fill="blue" />
+  <SmPoint :res="0.6" :react="0.6" fill="green" r="10" />
+</SmithChart>
 ```
 
-##### `:resistance-labels`
-* Type: `Boolean`
-* Default: `true`
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `res` | `Number\|String` | — | Normalised resistance |
+| `react` | `Number\|String` | — | Normalised reactance |
+| `r` | `Number\|String` | `5` | Circle radius in pixels |
 
-Show or hide the resistance labels
+All SVG `<circle>` attributes (`fill`, `stroke`, etc.) pass through.
+
+---
+
+### `<SmResCircle>`
+
+Draw a constant-resistance circle.
 
 ```html
-<smith-chart :resistance-labels="false"></smith-chart>
+<SmithChart>
+  <SmResCircle :res="2" fill="rgba(0,0,255,0.4)" />
+  <SmResCircle :res="0.5" :crop="1" fill="rgba(255,0,255,0.4)" stroke="black" stroke-width="2" />
+</SmithChart>
 ```
 
-##### `:reactance-labels`
-* Type: `Boolean`
-* Default: `true`
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `res` | `Number\|String` | — | Normalised resistance value |
+| `crop` | `Number\|String` | `''` | Crop to only show the portion outside the given reactance arc |
 
-Show or hide the reactance labels
+---
+
+### `<SmReactArc>`
+
+Draw a constant-reactance arc.
 
 ```html
-<smith-chart :reactance-labels="false"></smith-chart>
+<SmithChart>
+  <SmReactArc :react="1" :crop="2" fill="none" stroke="red" stroke-width="3" />
+  <SmReactArc :react="0.5" :double="true" fill="rgba(255,0,255,0.4)" />
+</SmithChart>
 ```
 
-### Draw points with `<sm-point>`
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `react` | `Number\|String` | — | Normalised reactance value |
+| `crop` | `Number\|String` | `''` | Crop to only show the portion outside the given resistance circle |
+| `double` | `Boolean` | `false` | Also draw the mirrored arc (e.g. draw both +1 and -1) |
 
-Use the `<sm-point>` component to draw points into specific intersecting resistance/reactance circles.
+---
 
-You need to specify the `res` and `react` props (resistance and reactance).
+### `<SmVswrCircle>`
 
-This will draw an SVG `<circle>` element at the desired position, which means all of the SVG attributes in HTML are still valid, such as `fill` to set the color. You can use `r` to set the radius of the point.
+Draw a constant-VSWR circle centred on the chart centre, passing through the given impedance point.
 
 ```html
-<smith-chart>
-  <sm-point :res="0" :react="0" fill="red"></sm-point>
-  <sm-point :res="1" :react="0" fill="blue"></sm-point>
-  <sm-point :res="2" :react="0" fill="green"></sm-point>
-  <sm-point :res="3" :react="1" fill="purple"></sm-point>
-  <sm-point :res="0.6" :react="0.6" fill="rgba(123,345,2,0.5)" r="10"></sm-point>
-</smith-chart>
+<SmithChart>
+  <SmVswrCircle :res="1" :react="1" stroke="blue" />
+  <SmVswrCircle :res="0.3" :react="-0.5" :show-point="false" stroke="red" stroke-width="4" />
+</SmithChart>
 ```
 
-![Smith Chart with custom points](readme/points.png?raw=true "Smith Chart with custom points")
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `res` | `Number\|String` | `1` | Normalised resistance of the impedance point |
+| `react` | `Number\|String` | `1` | Normalised reactance of the impedance point |
+| `showPoint` | `Boolean` | `true` | Also draw the impedance point itself |
+| `stroke` | `String` | `'black'` | Stroke colour |
+| `strokeWidth` | `Number\|String` | `3` | Stroke width |
 
-### Draw Constant Resistance Circles with `<sm-res-circle>`
+---
 
-Use the `<sm-res-circle>` component to draw constant resistance circles into the chart.
-You need to specify the `res` prop (resistance).
-
-Optionally set the `crop` prop. This will "crop" the circle using a mask and show you only the portion of that circle that falls "outside" the Constant Reactance Arc of the specified value.
-
-Use the SVG attributes `fill`, `stroke` and `stroke-width` to style the circle.
+## Full Example
 
 ```html
-<smith-chart>
-  <sm-res-circle
-    :res="2"
-    fill="rgba(0,0,255,0.5)"
-  ></sm-res-circle>
+<script setup>
+import { SmithChart, SmPoint, SmResCircle, SmReactArc, SmVswrCircle } from 'vue-smith-chart'
+import 'vue-smith-chart/style.css'
+</script>
 
-  <sm-res-circle
-    :res="0.5"
-    :crop="1"
-    fill="rgba(255,0,255,0.5)"
-    stroke-width="2"
-    stroke="black"
-  ></sm-res-circle>
+<template>
+  <SmithChart :radius="350">
+    <!-- Impedance points -->
+    <SmPoint :res="1" :react="0" fill="blue" />
+    <SmPoint :res="0.5" :react="0.5" fill="red" r="8" />
 
-  <sm-res-circle
-    :res="0.2"
-    :crop="0.4"
-    fill="none"
-    stroke-width="5"
-    stroke="#FF4136"
-  ></sm-res-circle>
-</smith-chart>
+    <!-- Constant resistance circle -->
+    <SmResCircle :res="0.5" fill="rgba(0,0,255,0.15)" />
+
+    <!-- Constant reactance arc, both polarities -->
+    <SmReactArc :react="1" :double="true" fill="rgba(255,0,0,0.15)" />
+
+    <!-- VSWR circle -->
+    <SmVswrCircle :res="1" :react="1" stroke="green" />
+  </SmithChart>
+</template>
 ```
 
-![Smith Chart with custom resistance circles](readme/res-circle.png?raw=true "Smith Chart with custom resistance circles")
+## Upgrading from v0.x (Vue 2)
 
-### Draw Constant Reactance Arcs with `<sm-react-arc>`
-
-Use the `<sm-react-arc>` component to draw constant reactance arcs into the chart.
-You need to specify the `react` prop (reactance).
-
-Optionally set the `crop` prop. This will "crop" the arc using a mask and show you only the portion of that arc that falls "outside" the Constant Resistance Circle of the specified value.
-
-Optionally set the `double` prop to `true`or `false`. This will draw the reactance arc and also its vertically simetric arc (eg. if you draw the 1 reactance arc, it will also draw the -1).
-
-Use the SVG attributes `fill`, `stroke` and `stroke-width` to style the circle.
-
-```html
-<smith-chart>
-  <sm-react-arc
-    :react="-0.2"
-    :crop="2"
-    fill="none"
-    stroke-width="5"
-    stroke="#FF4136"
-  ></sm-react-arc>
-
-  <sm-react-arc
-    :react="-0.8"
-    fill="rgba(0,255,255,0.5)"
-  ></sm-react-arc>
-
-  <sm-react-arc
-    :react="0.5"
-    :crop="0.6"
-    :double="true"
-    fill="rgba(255,0,255,0.5)"
-    stroke-width="5"
-    stroke="rgb(255,0,255)"
-  ></sm-react-arc>
-</smith-chart>
-```
-
-![Smith Chart with custom reactance circles](readme/react-circle.png?raw=true "Smith Chart with custom reactance circles")
-
-### Draw Constant VSWR Circles with `<sm-vswr-circle>`
-
-Use the `<sm-vswr-circle>` component to draw constant Voltage Standing Wave Ratio arcs into the chart.
-You need to specify the `res` and `react` props (resistance and reactance) of the impedance from which you want to draw its VSWR.
-
-The impedance point will be drawn as well, as a default option. Set the `show-point` prop to `false` if you don't want to display this point.
-
-Use the SVG attributes `stroke` and `stroke-width` to style the circle.
-
-```html
-<smith-chart>
-  <sm-vswr-circle
-    :res="1"
-    :react="1"
-  ></sm-vswr-circle>
-
-  <sm-vswr-circle
-    :res="0.3"
-    :react="-0.5"
-    stroke-width="5"
-    stroke="blue"
-  ></sm-vswr-circle>
-
-  <sm-vswr-circle
-    :res="0.2"
-    :react="1"
-    :show-point="false"
-    stroke="red"
-  ></sm-vswr-circle>
-</smith-chart>
-```
-
-![Smith Chart with custom VSWR circles](readme/vswr-circle.png?raw=true "Smith Chart with custom VSWR circles")
-
-## Built With
-
-* [Vue.js](https://vuejs.org/) - The Progressive JavaScript Framework
-
-## Authors
-
-* **Germinal Camps** - [website](http://www.germinalcamps.com)
-
-## Contributing
-
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request :)
+See [UPGRADE.md](./UPGRADE.md) for a full explanation of every change and a
+step-by-step guide to publishing this package to npm.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Resources
-
-* [Mathematical Construction and Properties of the Smith Chart](https://www.allaboutcircuits.com/technical-articles/mathematical-construction-and-properties-of-the-smith-chart)
+MIT — [Germinal Camps](http://www.germinalcamps.com)
