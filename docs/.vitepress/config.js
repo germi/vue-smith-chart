@@ -18,7 +18,7 @@ export default defineConfig({
       { text: 'Components', link: '/components/smith-chart' },
       {
         text: 'Changelog',
-        link: 'https://github.com/germi/vue-smith-chart/blob/main/CHANGELOG.md',
+        link: 'https://github.com/germi/vue-smith-chart/blob/master/CHANGELOG.md',
       },
     ],
 

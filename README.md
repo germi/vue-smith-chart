@@ -1,5 +1,7 @@
 # vue-smith-chart
 
+**Documentation: [vue-smith-chart.netlify.app](https://vue-smith-chart.netlify.app/)**
+
 Draw a Smith Chart in SVG with Vue 3.
 
 > The Smith Chart is a graphical aid designed for RF/electronics engineers to
