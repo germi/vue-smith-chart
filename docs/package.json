@@ -1,0 +1,14 @@
+{
+  "name": "vue-smith-chart-docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "devDependencies": {
+    "vitepress": "^1.3.0",
+    "vue": "^3.4.0"
+  }
+}
