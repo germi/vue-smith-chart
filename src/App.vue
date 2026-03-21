@@ -46,9 +46,9 @@
               class="rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-4 shadow-sm dark:shadow-xl flex items-center justify-center"
             >
               <SmithChart
-                :resistance-labels="false"
-                :reactance-labels="false"
-                :label-rings="false"
+                :resistance-labels="showResLabels"
+                :reactance-labels="showReactLabels"
+                :label-rings="showLabelRings"
                 :radius="300"
               >
                 <SmResCircle
@@ -105,6 +105,33 @@
 
         <!-- Controls sidebar -->
         <div class="flex w-full flex-col gap-4 lg:w-80 lg:shrink-0">
+
+          <!-- Chart Options -->
+          <section class="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden shadow-sm">
+            <div class="border-b border-gray-100 dark:border-gray-800 px-4 py-3">
+              <h2 class="text-sm font-semibold">Chart Options</h2>
+            </div>
+            <ul class="divide-y divide-gray-100 dark:divide-gray-800">
+              <li class="flex items-center justify-between px-4 py-2.5">
+                <span class="text-xs text-gray-600 dark:text-gray-400">Resistance labels</span>
+                <button @click="showResLabels = !showResLabels" class="toggle" :class="{ 'toggle-on': showResLabels }" :aria-pressed="showResLabels">
+                  <span class="toggle-thumb"></span>
+                </button>
+              </li>
+              <li class="flex items-center justify-between px-4 py-2.5">
+                <span class="text-xs text-gray-600 dark:text-gray-400">Reactance labels</span>
+                <button @click="showReactLabels = !showReactLabels" class="toggle" :class="{ 'toggle-on': showReactLabels }" :aria-pressed="showReactLabels">
+                  <span class="toggle-thumb"></span>
+                </button>
+              </li>
+              <li class="flex items-center justify-between px-4 py-2.5">
+                <span class="text-xs text-gray-600 dark:text-gray-400">Label rings</span>
+                <button @click="showLabelRings = !showLabelRings" class="toggle" :class="{ 'toggle-on': showLabelRings }" :aria-pressed="showLabelRings">
+                  <span class="toggle-thumb"></span>
+                </button>
+              </li>
+            </ul>
+          </section>
 
           <!-- Impedance Points -->
           <section class="rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden shadow-sm">
@@ -243,6 +270,10 @@ const resCircles = ref([{ res: 1, crop: 0, color: "#6366f1" }]);
 const reactArcs = ref([{ react: 1, crop: "", color: "#6366f1" }]);
 const vswrCircles = ref([{ res: 1, react: 1, color: "#f59e0b" }]);
 
+const showResLabels = ref(true);
+const showReactLabels = ref(true);
+const showLabelRings = ref(true);
+
 const copied = ref(false);
 const isDark = ref(false);
 
@@ -308,6 +339,35 @@ const generatedCode = computed(() => {
 </script>
 
 <style>
+.toggle {
+  position: relative;
+  width: 2.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  background: #d1d5db;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.toggle-on {
+  background: #6366f1;
+}
+.toggle-thumb {
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+.toggle-on .toggle-thumb {
+  transform: translateX(1rem);
+}
+
 .color-swatch {
   width: 1.375rem;
   height: 1.375rem;

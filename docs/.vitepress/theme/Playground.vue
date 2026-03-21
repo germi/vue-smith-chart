@@ -6,9 +6,9 @@
         <div class="chart-outer">
           <div ref="chartWrap" class="chart-card">
             <SmithChart
-              :resistance-labels="false"
-              :reactance-labels="false"
-              :label-rings="false"
+              :resistance-labels="showResLabels"
+              :reactance-labels="showReactLabels"
+              :label-rings="showLabelRings"
               :radius="300"
             >
               <SmResCircle
@@ -61,6 +61,33 @@
 
       <!-- Controls sidebar -->
       <div class="controls">
+
+        <!-- Chart Options -->
+        <section class="control-section">
+          <div class="section-header">
+            <h2>Chart Options</h2>
+          </div>
+          <ul class="item-list">
+            <li class="toggle-row">
+              <span class="toggle-label">Resistance labels</span>
+              <button @click="showResLabels = !showResLabels" class="toggle" :class="{ 'toggle-on': showResLabels }" :aria-pressed="showResLabels">
+                <span class="toggle-thumb"></span>
+              </button>
+            </li>
+            <li class="toggle-row">
+              <span class="toggle-label">Reactance labels</span>
+              <button @click="showReactLabels = !showReactLabels" class="toggle" :class="{ 'toggle-on': showReactLabels }" :aria-pressed="showReactLabels">
+                <span class="toggle-thumb"></span>
+              </button>
+            </li>
+            <li class="toggle-row">
+              <span class="toggle-label">Label rings</span>
+              <button @click="showLabelRings = !showLabelRings" class="toggle" :class="{ 'toggle-on': showLabelRings }" :aria-pressed="showLabelRings">
+                <span class="toggle-thumb"></span>
+              </button>
+            </li>
+          </ul>
+        </section>
 
         <!-- Impedance Points -->
         <section class="control-section">
@@ -174,6 +201,10 @@ const points = ref([{ res: 1, react: 1, color: '#ef4444' }])
 const resCircles = ref([{ res: 1, crop: 0, color: '#6366f1' }])
 const reactArcs = ref([{ react: 1, crop: '', color: '#6366f1' }])
 const vswrCircles = ref([{ res: 1, react: 1, color: '#f59e0b' }])
+
+const showResLabels = ref(true)
+const showReactLabels = ref(true)
+const showLabelRings = ref(true)
 
 const copied = ref(false)
 
@@ -314,6 +345,45 @@ const generatedCode = computed(() => {
 .dot-red    { background: #ef4444; }
 .dot-indigo { background: #6366f1; }
 .dot-amber  { background: #f59e0b; }
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  border-top: 1px solid var(--vp-c-divider);
+}
+.toggle-row:first-child { border-top: none; }
+
+.toggle-label {
+  font-size: 0.75rem;
+  color: var(--vp-c-text-2);
+}
+
+.toggle {
+  position: relative;
+  width: 2.25rem;
+  height: 1.25rem;
+  border-radius: 9999px;
+  background: var(--vp-c-divider);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.toggle-on { background: #6366f1; }
+.toggle-thumb {
+  position: absolute;
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+.toggle-on .toggle-thumb { transform: translateX(1rem); }
 
 .color-swatch {
   width: 1.375rem;
