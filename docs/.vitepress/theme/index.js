@@ -4,6 +4,7 @@ import DemoPoint from './DemoPoint.vue'
 import DemoResCircle from './DemoResCircle.vue'
 import DemoReactArc from './DemoReactArc.vue'
 import DemoVswr from './DemoVswr.vue'
+import Playground from './Playground.vue'
 import './custom.css'
 
 export default {
@@ -14,5 +15,6 @@ export default {
     app.component('DemoResCircle', DemoResCircle)
     app.component('DemoReactArc', DemoReactArc)
     app.component('DemoVswr', DemoVswr)
+    app.component('Playground', Playground)
   },
 }

@@ -16,6 +16,7 @@ export default defineConfig({
     nav: [
       { text: 'Guide', link: '/guide/getting-started' },
       { text: 'Components', link: '/components/smith-chart' },
+      { text: 'Playground', link: '/playground' },
       {
         text: 'Changelog',
         link: 'https://github.com/germi/vue-smith-chart/blob/master/CHANGELOG.md',
