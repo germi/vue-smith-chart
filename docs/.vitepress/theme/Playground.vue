@@ -9,7 +9,7 @@
               :resistance-labels="showResLabels"
               :reactance-labels="showReactLabels"
               :label-rings="showLabelRings"
-              :radius="300"
+              :radius="280"
             >
               <SmResCircle
                 v-for="(circle, i) in resCircles"
@@ -48,8 +48,21 @@
           </div>
 
           <!-- Download SVG button -->
-          <button class="btn-download" @click="downloadSvg" title="Download SVG">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <button
+            class="btn-download"
+            @click="downloadSvg"
+            title="Download SVG"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
               <polyline points="7 10 12 15 17 10" />
               <line x1="12" y1="15" x2="12" y2="3" />
@@ -61,7 +74,6 @@
 
       <!-- Controls sidebar -->
       <div class="controls">
-
         <!-- Chart Options -->
         <section class="control-section">
           <div class="section-header">
@@ -70,19 +82,34 @@
           <ul class="item-list">
             <li class="toggle-row">
               <span class="toggle-label">Resistance labels</span>
-              <button @click="showResLabels = !showResLabels" class="toggle" :class="{ 'toggle-on': showResLabels }" :aria-pressed="showResLabels">
+              <button
+                @click="showResLabels = !showResLabels"
+                class="toggle"
+                :class="{ 'toggle-on': showResLabels }"
+                :aria-pressed="showResLabels"
+              >
                 <span class="toggle-thumb"></span>
               </button>
             </li>
             <li class="toggle-row">
               <span class="toggle-label">Reactance labels</span>
-              <button @click="showReactLabels = !showReactLabels" class="toggle" :class="{ 'toggle-on': showReactLabels }" :aria-pressed="showReactLabels">
+              <button
+                @click="showReactLabels = !showReactLabels"
+                class="toggle"
+                :class="{ 'toggle-on': showReactLabels }"
+                :aria-pressed="showReactLabels"
+              >
                 <span class="toggle-thumb"></span>
               </button>
             </li>
             <li class="toggle-row">
               <span class="toggle-label">Label rings</span>
-              <button @click="showLabelRings = !showLabelRings" class="toggle" :class="{ 'toggle-on': showLabelRings }" :aria-pressed="showLabelRings">
+              <button
+                @click="showLabelRings = !showLabelRings"
+                class="toggle"
+                :class="{ 'toggle-on': showLabelRings }"
+                :aria-pressed="showLabelRings"
+              >
                 <span class="toggle-thumb"></span>
               </button>
             </li>
@@ -96,15 +123,34 @@
               <span class="dot dot-red"></span>
               <h2>Impedance Points</h2>
             </div>
-            <button class="btn-add" @click="points.push({ res: 1, react: 1, color: '#ef4444' })">+ Add</button>
+            <button
+              class="btn-add"
+              @click="points.push({ res: 1, react: 1, color: '#ef4444' })"
+            >
+              + Add
+            </button>
           </div>
           <ul class="item-list">
             <li v-if="points.length === 0" class="empty">No points added.</li>
             <li v-for="(point, i) in points" :key="i" class="item-row">
               <input type="color" v-model="point.color" class="color-swatch" />
-              <label class="field">R <input v-model.number="point.res" type="number" class="num-input" /></label>
-              <label class="field">X <input v-model.number="point.react" type="number" class="num-input" /></label>
-              <button class="btn-remove" @click="points.splice(i, 1)">Remove</button>
+              <label class="field"
+                >R
+                <input
+                  v-model.number="point.res"
+                  type="number"
+                  class="num-input"
+              /></label>
+              <label class="field"
+                >X
+                <input
+                  v-model.number="point.react"
+                  type="number"
+                  class="num-input"
+              /></label>
+              <button class="btn-remove" @click="points.splice(i, 1)">
+                Remove
+              </button>
             </li>
           </ul>
         </section>
@@ -116,15 +162,36 @@
               <span class="dot dot-indigo"></span>
               <h2>Resistance Circles</h2>
             </div>
-            <button class="btn-add" @click="resCircles.push({ res: 1, crop: 0, color: '#6366f1' })">+ Add</button>
+            <button
+              class="btn-add"
+              @click="resCircles.push({ res: 1, crop: 0, color: '#6366f1' })"
+            >
+              + Add
+            </button>
           </div>
           <ul class="item-list">
-            <li v-if="resCircles.length === 0" class="empty">No circles added.</li>
+            <li v-if="resCircles.length === 0" class="empty">
+              No circles added.
+            </li>
             <li v-for="(circle, i) in resCircles" :key="i" class="item-row">
               <input type="color" v-model="circle.color" class="color-swatch" />
-              <label class="field">Res <input v-model.number="circle.res" type="number" class="num-input" /></label>
-              <label class="field">Crop <input v-model.number="circle.crop" type="number" class="num-input" /></label>
-              <button class="btn-remove" @click="resCircles.splice(i, 1)">Remove</button>
+              <label class="field"
+                >Res
+                <input
+                  v-model.number="circle.res"
+                  type="number"
+                  class="num-input"
+              /></label>
+              <label class="field"
+                >Crop
+                <input
+                  v-model.number="circle.crop"
+                  type="number"
+                  class="num-input"
+              /></label>
+              <button class="btn-remove" @click="resCircles.splice(i, 1)">
+                Remove
+              </button>
             </li>
           </ul>
         </section>
@@ -136,15 +203,34 @@
               <span class="dot dot-indigo"></span>
               <h2>Reactance Arcs</h2>
             </div>
-            <button class="btn-add" @click="reactArcs.push({ react: 1, crop: '', color: '#6366f1' })">+ Add</button>
+            <button
+              class="btn-add"
+              @click="reactArcs.push({ react: 1, crop: '', color: '#6366f1' })"
+            >
+              + Add
+            </button>
           </div>
           <ul class="item-list">
             <li v-if="reactArcs.length === 0" class="empty">No arcs added.</li>
             <li v-for="(arc, i) in reactArcs" :key="i" class="item-row">
               <input type="color" v-model="arc.color" class="color-swatch" />
-              <label class="field">React <input v-model.number="arc.react" type="number" class="num-input" /></label>
-              <label class="field">Crop <input v-model.number="arc.crop" type="number" class="num-input" /></label>
-              <button class="btn-remove" @click="reactArcs.splice(i, 1)">Remove</button>
+              <label class="field"
+                >React
+                <input
+                  v-model.number="arc.react"
+                  type="number"
+                  class="num-input"
+              /></label>
+              <label class="field"
+                >Crop
+                <input
+                  v-model.number="arc.crop"
+                  type="number"
+                  class="num-input"
+              /></label>
+              <button class="btn-remove" @click="reactArcs.splice(i, 1)">
+                Remove
+              </button>
             </li>
           </ul>
         </section>
@@ -156,15 +242,36 @@
               <span class="dot dot-amber"></span>
               <h2>VSWR Circles</h2>
             </div>
-            <button class="btn-add" @click="vswrCircles.push({ res: 1, react: 1, color: '#f59e0b' })">+ Add</button>
+            <button
+              class="btn-add"
+              @click="vswrCircles.push({ res: 1, react: 1, color: '#f59e0b' })"
+            >
+              + Add
+            </button>
           </div>
           <ul class="item-list">
-            <li v-if="vswrCircles.length === 0" class="empty">No circles added.</li>
+            <li v-if="vswrCircles.length === 0" class="empty">
+              No circles added.
+            </li>
             <li v-for="(circle, i) in vswrCircles" :key="i" class="item-row">
               <input type="color" v-model="circle.color" class="color-swatch" />
-              <label class="field">R <input v-model.number="circle.res" type="number" class="num-input" /></label>
-              <label class="field">X <input v-model.number="circle.react" type="number" class="num-input" /></label>
-              <button class="btn-remove" @click="vswrCircles.splice(i, 1)">Remove</button>
+              <label class="field"
+                >R
+                <input
+                  v-model.number="circle.res"
+                  type="number"
+                  class="num-input"
+              /></label>
+              <label class="field"
+                >X
+                <input
+                  v-model.number="circle.react"
+                  type="number"
+                  class="num-input"
+              /></label>
+              <button class="btn-remove" @click="vswrCircles.splice(i, 1)">
+                Remove
+              </button>
             </li>
           </ul>
         </section>
@@ -174,78 +281,105 @@
           <div class="section-header">
             <h2>Generated Code</h2>
             <button class="btn-copy" @click="copyCode">
-              <svg v-if="copied" xmlns="http://www.w3.org/2000/svg" class="icon icon-green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg
+                v-if="copied"
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-green"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
                 <polyline points="20 6 9 17 4 12" />
               </svg>
-              <svg v-else xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg
+                v-else
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
                 <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                <path
+                  d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"
+                />
               </svg>
-              {{ copied ? 'Copied!' : 'Copy' }}
+              {{ copied ? "Copied!" : "Copy" }}
             </button>
           </div>
           <pre class="code-output"><code>{{ generatedCode }}</code></pre>
         </section>
-
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
-import { SmithChart, SmPoint, SmResCircle, SmReactArc, SmVswrCircle } from 'vue-smith-chart'
+import { ref, computed } from "vue";
+import {
+  SmithChart,
+  SmPoint,
+  SmResCircle,
+  SmReactArc,
+  SmVswrCircle,
+} from "vue-smith-chart";
 
-const chartWrap = ref(null)
-const points = ref([{ res: 1, react: 1, color: '#ef4444' }])
-const resCircles = ref([{ res: 1, crop: 0, color: '#6366f1' }])
-const reactArcs = ref([{ react: 1, crop: '', color: '#6366f1' }])
-const vswrCircles = ref([{ res: 1, react: 1, color: '#f59e0b' }])
+const chartWrap = ref(null);
+const points = ref([{ res: 1, react: 1, color: "#ef4444" }]);
+const resCircles = ref([{ res: 1, crop: 0, color: "#6366f1" }]);
+const reactArcs = ref([{ react: 1, crop: "", color: "#6366f1" }]);
+const vswrCircles = ref([{ res: 1, react: 1, color: "#f59e0b" }]);
 
-const showResLabels = ref(true)
-const showReactLabels = ref(true)
-const showLabelRings = ref(true)
+const showResLabels = ref(true);
+const showReactLabels = ref(true);
+const showLabelRings = ref(true);
 
-const copied = ref(false)
+const copied = ref(false);
 
 function hexToRgba(hex, alpha) {
-  const r = parseInt(hex.slice(1, 3), 16)
-  const g = parseInt(hex.slice(3, 5), 16)
-  const b = parseInt(hex.slice(5, 7), 16)
-  return `rgba(${r},${g},${b},${alpha})`
+  const r = parseInt(hex.slice(1, 3), 16);
+  const g = parseInt(hex.slice(3, 5), 16);
+  const b = parseInt(hex.slice(5, 7), 16);
+  return `rgba(${r},${g},${b},${alpha})`;
 }
 
 async function copyCode() {
-  await navigator.clipboard.writeText(generatedCode.value)
-  copied.value = true
-  setTimeout(() => (copied.value = false), 2000)
+  await navigator.clipboard.writeText(generatedCode.value);
+  copied.value = true;
+  setTimeout(() => (copied.value = false), 2000);
 }
 
 function downloadSvg() {
-  const svgEl = chartWrap.value?.querySelector('svg')
-  if (!svgEl) return
-  const serialized = new XMLSerializer().serializeToString(svgEl)
-  const blob = new Blob([serialized], { type: 'image/svg+xml' })
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement('a')
-  a.href = url
-  a.download = 'smith-chart.svg'
-  a.click()
-  URL.revokeObjectURL(url)
+  const svgEl = chartWrap.value?.querySelector("svg");
+  if (!svgEl) return;
+  const serialized = new XMLSerializer().serializeToString(svgEl);
+  const blob = new Blob([serialized], { type: "image/svg+xml" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "smith-chart.svg";
+  a.click();
+  URL.revokeObjectURL(url);
 }
 
 const generatedCode = computed(() => {
-  let html = '<SmithChart>\n'
+  let html = "<SmithChart>\n";
   for (const c of resCircles.value)
-    html += `  <SmResCircle :res="${c.res}" :crop="${c.crop}" fill="${hexToRgba(c.color, 0.15)}" stroke="${c.color}" stroke-width="2" />\n`
+    html += `  <SmResCircle :res="${c.res}" :crop="${c.crop}" fill="${hexToRgba(c.color, 0.15)}" stroke="${c.color}" stroke-width="2" />\n`;
   for (const a of reactArcs.value)
-    html += `  <SmReactArc :react="${a.react}" :crop="${a.crop}" fill="${hexToRgba(a.color, 0.15)}" stroke="${a.color}" stroke-width="2" />\n`
+    html += `  <SmReactArc :react="${a.react}" :crop="${a.crop}" fill="${hexToRgba(a.color, 0.15)}" stroke="${a.color}" stroke-width="2" />\n`;
   for (const c of vswrCircles.value)
-    html += `  <SmVswrCircle :res="${c.res}" :react="${c.react}" stroke="${c.color}" stroke-width="2" />\n`
+    html += `  <SmVswrCircle :res="${c.res}" :react="${c.react}" stroke="${c.color}" stroke-width="2" />\n`;
   for (const p of points.value)
-    html += `  <SmPoint :res="${p.res}" :react="${p.react}" fill="${p.color}" />\n`
-  return html + '</SmithChart>'
-})
+    html += `  <SmPoint :res="${p.res}" :react="${p.react}" fill="${p.color}" />\n`;
+  return html + "</SmithChart>";
+});
 </script>
 
 <style scoped>
@@ -295,9 +429,11 @@ const generatedCode = computed(() => {
   font-weight: 500;
   color: var(--vp-c-text-2);
   cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
-.btn-download:hover { background: var(--vp-c-bg-soft); }
+.btn-download:hover {
+  background: var(--vp-c-bg-soft);
+}
 
 .controls {
   width: 300px;
@@ -342,9 +478,15 @@ const generatedCode = computed(() => {
   border-radius: 50%;
   flex-shrink: 0;
 }
-.dot-red    { background: #ef4444; }
-.dot-indigo { background: #6366f1; }
-.dot-amber  { background: #f59e0b; }
+.dot-red {
+  background: #ef4444;
+}
+.dot-indigo {
+  background: #6366f1;
+}
+.dot-amber {
+  background: #f59e0b;
+}
 
 .toggle-row {
   display: flex;
@@ -353,7 +495,9 @@ const generatedCode = computed(() => {
   padding: 0.5rem 1rem;
   border-top: 1px solid var(--vp-c-divider);
 }
-.toggle-row:first-child { border-top: none; }
+.toggle-row:first-child {
+  border-top: none;
+}
 
 .toggle-label {
   font-size: 0.75rem;
@@ -371,7 +515,9 @@ const generatedCode = computed(() => {
   transition: background 0.2s;
   flex-shrink: 0;
 }
-.toggle-on { background: #6366f1; }
+.toggle-on {
+  background: #6366f1;
+}
 .toggle-thumb {
   position: absolute;
   top: 0.125rem;
@@ -380,10 +526,12 @@ const generatedCode = computed(() => {
   height: 1rem;
   border-radius: 50%;
   background: white;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s;
 }
-.toggle-on .toggle-thumb { transform: translateX(1rem); }
+.toggle-on .toggle-thumb {
+  transform: translateX(1rem);
+}
 
 .color-swatch {
   width: 1.375rem;
@@ -395,8 +543,13 @@ const generatedCode = computed(() => {
   background: none;
   flex-shrink: 0;
 }
-.color-swatch::-webkit-color-swatch-wrapper { padding: 0; }
-.color-swatch::-webkit-color-swatch { border: none; border-radius: 0.2rem; }
+.color-swatch::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+.color-swatch::-webkit-color-swatch {
+  border: none;
+  border-radius: 0.2rem;
+}
 
 .btn-add {
   border-radius: 0.375rem;
@@ -408,7 +561,9 @@ const generatedCode = computed(() => {
   color: var(--vp-c-text-2);
   cursor: pointer;
 }
-.btn-add:hover { background: var(--vp-c-bg-alt); }
+.btn-add:hover {
+  background: var(--vp-c-bg-alt);
+}
 
 .btn-copy {
   display: flex;
@@ -423,7 +578,9 @@ const generatedCode = computed(() => {
   color: var(--vp-c-text-2);
   cursor: pointer;
 }
-.btn-copy:hover { background: var(--vp-c-bg-alt); }
+.btn-copy:hover {
+  background: var(--vp-c-bg-alt);
+}
 
 .item-list {
   list-style: none;
@@ -445,7 +602,9 @@ const generatedCode = computed(() => {
   padding: 0.625rem 1rem;
   border-top: 1px solid var(--vp-c-divider);
 }
-.item-row:first-child { border-top: none; }
+.item-row:first-child {
+  border-top: none;
+}
 
 .field {
   display: flex;
@@ -465,7 +624,9 @@ const generatedCode = computed(() => {
   color: var(--vp-c-text-1);
   outline: none;
 }
-.num-input:focus { border-color: #6366f1; }
+.num-input:focus {
+  border-color: #6366f1;
+}
 
 .btn-remove {
   margin-left: auto;
@@ -476,13 +637,17 @@ const generatedCode = computed(() => {
   cursor: pointer;
   padding: 0;
 }
-.btn-remove:hover { color: #ef4444; }
+.btn-remove:hover {
+  color: #ef4444;
+}
 
 .icon {
   width: 0.75rem;
   height: 0.75rem;
 }
-.icon-green { color: #22c55e; }
+.icon-green {
+  color: #22c55e;
+}
 
 .code-output {
   margin: 0;
